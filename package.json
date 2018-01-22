@@ -1,0 +1,25 @@
+{
+  "name": "visited",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd visited-react && npm start",
+    "server": "cd pg-api && node server.js",
+    "start": "concurrently \"npm run client\" \"npm run server\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholmen/visited.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicholmen/visited/issues"
+  },
+  "homepage": "https://github.com/nicholmen/visited#readme",
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
+}

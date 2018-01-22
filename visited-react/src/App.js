@@ -7,7 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      title: ' Visited country application',
+      title: ' Visited country app',
       countries: []
     }
   }
@@ -18,8 +18,15 @@ class App extends Component {
   componentDidMount() {
     console.log('Component has mounted')
     var that = this;
-    fetch('http://localhost:3000/api/countries')
+    fetch('http://localhost:3001/api/countries', {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+
+    })
       .then(function(response){
+        console.log('HEY', response)
         response.json()
           .then(function(data) {
           let countries = that.state.countries;
@@ -38,7 +45,7 @@ removeCountry(id) {
     return country.id === id
   });
 
-  var request = new Request('http://localhost:3000/api/remove/' + id, {
+  var request = new Request('http://localhost:3001/api/remove/' + id, {
     method: 'DELETE'
   });
 
@@ -63,7 +70,7 @@ removeCountry(id) {
       continent_name: this.refs.continent_name.value,
       id: Math.random().toFixed(3)
     };
-    var request = new Request('http://localhost:3000/api/new-country', {
+    var request = new Request('http://localhost:3001/api/new-country', {
       method: 'POST',
       headers: new Headers({ 'Content-Type': 'application/json'}),
       body: JSON.stringify(country_data)
