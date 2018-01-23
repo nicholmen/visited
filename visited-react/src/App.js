@@ -91,6 +91,8 @@ removeCountry(id) {
     .catch(function(err) {
       console.log(err)
     })
+    this.refs.country_name.value = ""
+    this.refs.continent_name.value = ""
   }
 
   render() {
